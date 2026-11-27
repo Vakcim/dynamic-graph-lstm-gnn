@@ -1,0 +1,15 @@
+
+/data/
+/results/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+/.venv/
+/venv/
+/env/
+.env
+.env.*
+*.pt
+*.pth
+*.ckpt
+*.npz

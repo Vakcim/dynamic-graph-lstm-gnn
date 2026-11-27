@@ -1,0 +1,152 @@
+{
+  "identity": {
+    "protocol": "lstm-gnn-pilot-1.0",
+    "dataset": "synthetic",
+    "data": {
+      "manifest_sha256": "a5f8c4c226e2153411c844566dc833f5d44ba801d70c0789d6af6f7f3f77ad37",
+      "schema_sha256": "df43a18bf242d70b3a443a1f3e4afde92564296013bb136a39a9ad26bd364911",
+      "source_data_sha256": "ed897c78f7e73edd5b9f5c38335529f942fad02db14c30c375e336d2d5101e13",
+      "history": 60,
+      "node_order": [
+        "node_0",
+        "node_1",
+        "node_2",
+        "node_3",
+        "node_4",
+        "node_5",
+        "node_6",
+        "node_7",
+        "node_8",
+        "node_9",
+        "node_10",
+        "node_11"
+      ],
+      "normalization": {
+        "fit": "observed training rows only",
+        "mean": [
+          0.0007840182841489681,
+          0.00017815051055149317,
+          -0.00045138056064675746,
+          0.0014188062182811266,
+          0.001856526525473576,
+          -0.0012539178076000574,
+          0.0001470958189908555,
+          0.001357859615027516,
+          0.0016041340675139709,
+          -0.0023850036321793186,
+          0.002357444190185804,
+          -0.003057936095800296
+        ],
+        "std": [
+          0.11608002333296223,
+          0.11411084119539507,
+          0.11323961127879045,
+          0.11373451009419623,
+          0.11310864018188249,
+          0.11315062753852562,
+          0.11206061399759987,
+          0.11393207841071198,
+          0.11418310547727,
+          0.11365210955895202,
+          0.11363330726763995,
+          0.11530748887071669
+        ],
+        "ddof": 0
+      },
+      "input_missing_policy": "window forward fill then saved train mean",
+      "target_missing_policy": "never imputed; loss and metrics require y_mask"
+    },
+    "config": {
+      "hidden_size": 16,
+      "batch_size": 32,
+      "max_epochs": 15,
+      "patience": 4,
+      "learning_rate": 0.001,
+      "weight_decay": 0.0001,
+      "gradient_clip": 1.0,
+      "top_k": 3,
+      "cpu_threads": 2,
+      "device": "cpu",
+      "min_delta": 0.0
+    },
+    "code_sha256": {
+      "forecast_data.py": "af3105ab64b96780147532dff5e261ef7a3df42f6c269a9420e5221bf63e87fb",
+      "forecast_models.py": "1dd2c9995bcc204655fd40b341cd6fa70b3ac34cedf9f0fbc008e145caaa6034",
+      "forecast_metrics.py": "1aa0186290cb9151176df51d589365e00e7f17b8186e7e1e0dd043513509c381",
+      "forecast_experiment.py": "0753b8dc63e92f7b301cf2db7b62ae443e7273350e6bb2ea4d0d39a90a6f0fe8"
+    },
+    "versions": {
+      "python": "3.11.16",
+      "numpy": "2.4.6",
+      "pandas": "3.0.5",
+      "torch": "2.15.0+cpu"
+    },
+    "run_tag": "pilot_v1",
+    "model": "lstm",
+    "seed": 0
+  },
+  "status": "completed",
+  "model": "lstm",
+  "dataset": "synthetic",
+  "seed": 0,
+  "comparison_id": "36989cce73a0",
+  "run_id": "9bbeecb1c88b",
+  "output_dir": "/home/loktar/Desktop/money_coursework/results/synthetic/lstm/seed_000/9bbeecb1c88b",
+  "primary_metric": "mae",
+  "metrics": {
+    "val": {
+      "dataset": "synthetic",
+      "forecast_rows": 600,
+      "observed_rows": 600,
+      "unique_target_times": 600,
+      "observed_pairs": 7200,
+      "n_observed": 7200,
+      "n_origins": 600,
+      "nodes": 12,
+      "nodes_with_targets": 12,
+      "mae": 0.08110049838028377,
+      "rmse": 0.10130418176749242,
+      "macro_mae": 0.08110049838028377,
+      "macro_rmse": 0.10125865007310098,
+      "normalized_mse": 0.7918708207872179
+    },
+    "test": {
+      "dataset": "synthetic",
+      "forecast_rows": 1201,
+      "observed_rows": 1201,
+      "unique_target_times": 1201,
+      "observed_pairs": 14412,
+      "n_observed": 14412,
+      "n_origins": 1201,
+      "nodes": 12,
+      "nodes_with_targets": 12,
+      "mae": 0.08063915226569791,
+      "rmse": 0.10105347729829064,
+      "macro_mae": 0.08063915226569791,
+      "macro_rmse": 0.1010304884410057,
+      "normalized_mse": 0.7879450139223851
+    }
+  },
+  "best_epoch": 14,
+  "fit_seconds": 11.641013436979847,
+  "trainable_parameters": 2124,
+  "initial_parameter_sha256": "36497112f0cec0ea8343ecd8da677c352f188179218a2f0aa1581c5cf38a7ec3",
+  "device": "cpu",
+  "graph": null,
+  "architecture_note": "LSTM is multivariate; both GNNs share a per-node temporal encoder and differ only in graph updates",
+  "graph_update_note": "dynamic mode updates both edges and weights; effects are not yet separated",
+  "file_sha256": {
+    "best_model.pt": "d8b159fcaf40c2b400aebcaa92dad66add460525d1686292f17ee1603c9b016a",
+    "history.csv": "9b9273dc100bbc522800140db01e1c58492f9288e3a1ba6f95f0b2b7a847a5e2",
+    "normalization.json": "045fe8803fca7e3c78632216e36894b51bc67725c2b56318a84f90b1ff9a57ba",
+    "target_coverage.csv": "4fdfc2708f8cc7978bebc665066c7c22fbc8a5b2648943a70ed26c6704071434",
+    "test_losses.csv": "70240f8047965666bede5e85bc4b84b3cade458750b529be7bc4f1b4ec342dec",
+    "test_metrics.json": "0c7f476c9db540b1c011e5f54f907df43ecf4c22a588489e16dfdea17dfa3d46",
+    "test_per_node.csv": "62682529d47811f236cfdbb08d613adceee924936965ef4544d9713a52e8b268",
+    "test_predictions.npz": "28c19844de783005c6893883f0ffa580c5f92e4036fede8a3b4ddcd511c632c1",
+    "val_losses.csv": "48be91fbbd25fdeac970a2b3bec1f8260e6f50fe8c819442efc1f4bcb59d440b",
+    "val_metrics.json": "8b6d160b5c852c734ee141d6f286d7fe454c11762f20af3aea3684625a3051d3",
+    "val_per_node.csv": "24fa9eaa425c63cd274eb7866853e5213bbbe48059faedb2fe43476baf95d77b",
+    "val_predictions.npz": "b3cb2fc74654b38cf9c96016dfbb21d30ed6f55a816f5998824e700241be3900"
+  }
+}

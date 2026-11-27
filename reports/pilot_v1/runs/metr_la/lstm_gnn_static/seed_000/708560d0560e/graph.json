@@ -1,0 +1,9 @@
+{
+  "anchor_origin_row": 23989,
+  "anchor_time": "2012-05-23 07:05:00",
+  "history": 60,
+  "rule": "row-normalized top-k absolute Pearson correlation",
+  "A_ij": "message from node j to node i",
+  "self_edges": false,
+  "estimated_on": "last history-length window within train only"
+}
